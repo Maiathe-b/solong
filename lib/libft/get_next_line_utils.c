@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 15:40:09 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/10 12:02:22 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/23 15:52:35 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strjoingnl(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	total_len = ft_strlen(s1) + ft_strlen(s2);
+	total_len = ft_strlengnl(s1) + ft_strlengnl(s2);
 	str = malloc(total_len + 1);
 	if (!str)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 14:26:27 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/10 12:03:39 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/16 12:54:23 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <stdarg.h>
+# include <ctype.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 7
