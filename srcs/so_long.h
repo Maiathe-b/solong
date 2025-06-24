@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:00:40 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/16 15:52:08 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/24 15:23:29 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_position
 {
 	int			x;
 	int			y;
-	char		c;
 }				t_position;
 
 typedef struct s_map
@@ -57,6 +56,7 @@ typedef struct s_game
 	t_position	player;
 }				t_game;
 
-t_map *read_map(int fd);
-
+char	**read_map(int fd);
+void	print_error(char *msg);
+void	handle_errors(char **matrix);
 #endif

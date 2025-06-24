@@ -6,63 +6,70 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:32:47 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/16 16:26:08 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/24 15:58:14 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_position *parse_line(char *line, int y)
+void	check_newline(char *line)
 {
-	t_position	*row;
-	int			width;
-	int			x;
+	int	i;
 
-	width = 0;
-	x = 0;
-	while (line[width])
-		width++;
-	row = malloc(sizeof(t_position) * width);
-	while (x < width)
+	i = 1;
+	if(!line)
+		print_error("Error with line");
+	if(line[0] == '\n')
+		{
+			free(line);
+			print_error("Invalid Map (empty line)");
+		}
+	while(line[i])
 	{
-		row[x].x = x;
-		row[x].y = y;
-		row[x].c = line[x];
-		x++;
+		if(line[i] == '\n' && line[i + 1] == '\n')
+		{
+			free(line);
+			print_error("Invalid Map (empty line)");
+		}
+		i++;
 	}
-	return (row);
 }
 
-t_map	*read_map(int fd)
+char	**read_map(int fd)
 {
-	t_map	*map;
+	char	buffer[BUFFER_SIZE];
+	int		bytes_read;
+	char	**matrix;
 	char	*line;
+	char	*aux;
 
-	map = malloc(sizeof(t_map));
-	if(!map)
-		return(NULL);
-	map->position = malloc(sizeof(t_position *) * 1000);
-	if (!map->position)
-		return(free(map), NULL);
-	map->height = 0;
-	line = get_next_line(fd);
-	printf("%s", line);
-	while(line)
+	bytes_read = 1;
+	line = ft_strdup("");
+	aux = NULL;
+	while (bytes_read > 0)
 	{
-		if (ft_strlen(line) > 0 && line[ft_strlen(line) - 1] == '\n')
-			line[ft_strlen(line) - 1] = '\0';
-		if(map->height == 0)
-			map->width = ft_strlen(line);
-		map->position[map->height] = parse_line(line, map->height);
-		free(line);
-		map->height++;
-		line = get_next_line(fd);
+		bytes_read = read(fd, buffer, BUFFER_SIZE - 1);
+		if (bytes_read > 0)
+		{
+			buffer[bytes_read] = '\0';
+			aux = line;
+			line = ft_strjoin(line, buffer);
+			free(aux);
+		}
 	}
-	close(fd);
-	return (map);
+	check_newline(line);
+	matrix = ft_split(line, '\n');
+	free(line);
+	handle_errors(matrix);
+	return (matrix);
 }
 
-void	handle_errors(char **matrix)
+void	free_args(char **args)
 {
-	return ;
+	int	i;
+
+	i = 0;
+	while(args[i])
+		free(args[i++]);
+	free(args);
 }

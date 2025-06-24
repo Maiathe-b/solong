@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 14:56:57 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/24 16:54:24 by jomaia           ###   ########.fr       */
+/*   Created: 2025/06/24 14:45:41 by jomaia            #+#    #+#             */
+/*   Updated: 2025/06/24 14:47:18 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-int	main(int argc, char **argv)
+void	print_error(char *msg)
 {
-	int		fd;
-	char	**map_matrix;
-	t_game	game;
-	t_map	*map;
-
-	if (argc != 2)
-		return 0;
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		print_error("Could not open file");
-	map_matrix = read_map(fd);
-	close(fd);
-
+	ft_printf("Error: %s\n", msg);
+	exit(1);
 }
