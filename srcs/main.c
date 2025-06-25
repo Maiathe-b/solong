@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:56:57 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/24 16:54:24 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/25 15:59:02 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 	int		fd;
 	char	**map_matrix;
 	t_game	game;
-	t_map	*map;
 
 	if (argc != 2)
 		return 0;
@@ -27,5 +26,6 @@ int	main(int argc, char **argv)
 		print_error("Could not open file");
 	map_matrix = read_map(fd);
 	close(fd);
-
+	create_game(&game, map_matrix);
+	validate_map(&game, map_matrix);
 }

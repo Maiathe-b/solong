@@ -6,7 +6,7 @@
 #    By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 14:48:47 by jomaia            #+#    #+#              #
-#    Updated: 2025/06/16 15:45:46 by jomaia           ###   ########.fr        #
+#    Updated: 2025/06/25 15:58:00 by jomaia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,14 @@ MINILIBX_DIR = ./lib/minilibx-linux
 LIBFT = $(LIBFT_DIR)/libft.a
 MINILIBX =$(MINILIBX_DIR)/libmlx.a
 
-MAIN = main.c
+MAIN = srcs/main.c
 
-SRCS = map_parsing.c
+SRCS = srcs/map_parsing.c srcs/create_game.c srcs/map_validation.c srcs/utils.c srcs/error_handler.c
+
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Llib/minilibx-linux/ -lmlx_Linux -lXext -lX11
+CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
 all: $(LIBFT) $(MINILIBX) $(SO_LONG_A) $(NAME)
@@ -29,7 +31,7 @@ all: $(LIBFT) $(MINILIBX) $(SO_LONG_A) $(NAME)
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR)
 
-$(MLX):
+$(MINILIBX):
 	@$(MAKE) -C $(MINILIBX_DIR)
 
 $(SO_LONG_A): $(OBJS)
@@ -39,12 +41,6 @@ $(SO_LONG_A): $(OBJS)
 $(NAME): $(OBJS) $(MAIN)
 	@$(CC) $(CFLAGS) $(OBJS) $(MAIN) -L$(LIBFT_DIR) -lft -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm -o $(NAME)
 	@echo 'so_long compilado com libft e minilibx!'
-
-bonus: $(BONUS_NAME)
-
-$(BONUS_NAME): $(LIBFT) $(MLX) $(BONUS_OBJS) $(BONUS_MAIN)
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(BONUS_MAIN) -L$(LIBFT_DIR) -lft -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm -o $(BONUS_NAME)
-	@echo 'so_long_bonus compilado com libft e minilibx!'
 
 mlx_download:
 		git clone https://github.com/42Paris/minilibx-linux.git $(MINILIBX_DIR); \

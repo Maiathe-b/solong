@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:00:40 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/24 15:23:29 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/25 15:56:50 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ typedef struct s_map
 	int			coins;
 	int			width;
 	int			height;
-	t_position	**position;
+	char		**matrix;
 }				t_map;
 
 typedef struct s_game
 {
 	int			moves;
-	int			valexit;
+	int			valid_exit;
 	int			coins_capt;
 	int			exit_opened;
 	void		*mlx;
@@ -59,4 +59,7 @@ typedef struct s_game
 char	**read_map(int fd);
 void	print_error(char *msg);
 void	handle_errors(char **matrix);
+void	create_game(t_game *game, char **matrix);
+void	validate_map(t_game *game, char **matrix);
+void	free_args(char **args);
 #endif
