@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:00:40 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/25 15:56:50 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/26 17:43:56 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 typedef struct s_image
 {
-	void		*coin;
+	void		*collectable;
 	void		*exit;
-	void		*wall;
-	void		*ground;
+	void		*water;
+	void		*grass;
 	void		*player;
 	void		*exit_open;
 	void		*player_exit;
@@ -62,4 +62,9 @@ void	handle_errors(char **matrix);
 void	create_game(t_game *game, char **matrix);
 void	validate_map(t_game *game, char **matrix);
 void	free_args(char **args);
+void	free_all(t_game *game);
+void	init_window(t_game *game);
+void	draw_tile(t_game *game, void *img, int x, int y);
+
+
 #endif

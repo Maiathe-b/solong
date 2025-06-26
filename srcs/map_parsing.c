@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:32:47 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/24 15:58:14 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/26 17:12:28 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,4 @@ char	**read_map(int fd)
 	return (matrix);
 }
 
-void	free_args(char **args)
-{
-	int	i;
 
-	i = 0;
-	while(args[i])
-		free(args[i++]);
-	free(args);
-}
