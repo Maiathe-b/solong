@@ -29,4 +29,5 @@ int	main(int argc, char **argv)
 	create_game(&game, map_matrix);
 	validate_map(&game, map_matrix);
 	init_window(&game);
+	mlx_loop(game.mlx);
 }

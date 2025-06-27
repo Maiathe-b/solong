@@ -31,6 +31,35 @@ static void	draw_images(t_game *game)
 	}
 }
 
+void	draw_map(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(game->map.matrix[i])
+	{
+		j = 0;
+		while(game->map.matrix[i][j])
+		{
+			if(game->map.matrix[i][j] == '1')
+				mlx_put_image_to_window(game->mlx, game->window, game->images.water, j * 64, i * 64);
+			if(game->map.matrix[i][j] == '0')
+				mlx_put_image_to_window(game->mlx, game->window, game->images.grass, j * 64, i * 64);
+			if(game->map.matrix[i][j] == 'C')
+				mlx_put_image_to_window(game->mlx, game->window, game->images.collectable, j * 64, i * 64);
+			if(game->map.matrix[i][j] == 'P')
+				mlx_put_image_to_window(game->mlx, game->window, game->images.player, j * 64, i * 64);
+			if(game->map.matrix[i][j] == 'E')
+				mlx_put_image_to_window(game->mlx, game->window, game->images.exit, j * 64, i * 64);
+			// else if(game->map.matrix[i][j] == 'P' && game->coins_capt == game->map.coins)
+			// 	mlx_put_image_to_window(game->mlx, game->window, game->images.exit_open, i, j);
+			j++;
+		}
+		i++;
+	}
+}
+
 void	init_window(t_game *game)
 {
 	game->mlx = mlx_init();
@@ -47,4 +76,5 @@ void	init_window(t_game *game)
 		print_error("Window opening error");
 	}
 	draw_images(game);
+	draw_map(game);
 }

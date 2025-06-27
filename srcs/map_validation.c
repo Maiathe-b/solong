@@ -27,26 +27,26 @@ static void floodfill(t_game *temp, int x, int y, int *coins_found)
 	floodfill(temp, x, y + 1, coins_found);
 }
 
-// static char	**copy_matrix(char **matrix)
-// {
-// 	char	**copy;
-// 	int		i;
+static char	**copy_matrix(char **matrix)
+{
+	char	**copy;
+	int		i;
 
-// 	i = 0;
-// 	while(matrix[i])
-// 		i++;
-// 	copy = malloc((i - 1) * sizeof(char *));
-// 	if(!copy)
-// 		return(NULL);
-// 	i = 0;
-// 	while(copy[i])
-// 	{
-// 		copy[i] = ft_strdup(matrix[i]);
-// 		i++;
-// 	}
-// 	copy[i] = NULL;
-// 	return (copy);
-// }
+	i = 0;
+	while(matrix[i])
+		i++;
+	copy = malloc((i - 1) * sizeof(char *));
+	if(!copy)
+		return(NULL);
+	i = 0;
+	while(matrix[i])
+	{
+		copy[i] = ft_strdup(matrix[i]);
+		i++;
+	}
+	copy[i] = NULL;
+	return (copy);
+}
 
 void validate_map(t_game *game, char **matrix)
 {
@@ -55,12 +55,13 @@ void validate_map(t_game *game, char **matrix)
 
 	coins_found = 0;
 	temp = *game;
+	temp.map.matrix = copy_matrix(matrix);
 	if (!temp.map.matrix)
 	{
 		free_args(matrix);
 		print_error("Matrix Error");
 	}
-	floodfill(&temp, temp.player.x, temp.player.y, &coins_found);
+	floodfill(&temp, game->player.x, game->player.y, &coins_found);
 	if (coins_found != game->map.coins || temp.valid_exit != 1)
 	{
 		free_args(matrix);
