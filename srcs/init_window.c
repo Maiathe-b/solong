@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:55:54 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/26 18:00:30 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:37:24 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	draw_map(t_game *game)
 				mlx_put_image_to_window(game->mlx, game->window, game->images.collectable, j * 64, i * 64);
 			if(game->map.matrix[i][j] == 'P')
 				mlx_put_image_to_window(game->mlx, game->window, game->images.player, j * 64, i * 64);
-			if(game->map.matrix[i][j] == 'E')
+			if(game->map.matrix[i][j] == 'E' && game->exit_opened == 0)
 				mlx_put_image_to_window(game->mlx, game->window, game->images.exit, j * 64, i * 64);
-			// else if(game->map.matrix[i][j] == 'P' && game->coins_capt == game->map.coins)
-			// 	mlx_put_image_to_window(game->mlx, game->window, game->images.exit_open, i, j);
+			else if(game->map.matrix[i][j] == 'E' && game->exit_opened == 1)
+				mlx_put_image_to_window(game->mlx, game->window, game->images.exit_open, j * 64, i * 64);
 			j++;
 		}
 		i++;

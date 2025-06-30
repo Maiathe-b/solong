@@ -6,15 +6,15 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:25:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/30 15:38:58 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/30 16:26:32 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	new_position(t_game *game, int new_x, int new_y, int c)
+static void	new_position(t_game *game, int new_x, int new_y)
 {
-	if (c != 'E')
+	if (game->map.matrix[game->player.y][game->player.x] != 'E')
 		game->map.matrix[game->player.y][game->player.x] = '0';
 	draw_tile(game, game->images.grass, game->player.x, game->player.y);
 	game->player.x = new_x;
@@ -36,7 +36,7 @@ static int	player_move(t_game *game, int x, int y)
 	if (c == '1')
 		return (1);
 	game->moves++;
-	new_position(game, new_x, new_y, c);
+	new_position(game, new_x, new_y);
 	ft_printf("Moves: %d\n", game->moves);
 	if (c == 'C')
 	{
