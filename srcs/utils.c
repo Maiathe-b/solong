@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:45:41 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/26 17:43:46 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/30 15:39:35 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ void	free_all(t_game *game)
 void	draw_tile(t_game *game, void *img, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->window, img, x, y);
+}
+
+int	close_game(void *param)
+{
+	t_game *game;
+
+	game = (t_game *)param;
+	free_all(game);
+	exit(0);
+	return(0);
 }

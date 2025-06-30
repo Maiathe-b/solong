@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:00:40 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/26 17:43:56 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/06/30 14:52:39 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	free_args(char **args);
 void	free_all(t_game *game);
 void	init_window(t_game *game);
 void	draw_tile(t_game *game, void *img, int x, int y);
-
+void	draw_map(t_game *game);
+int		input(int key, void *game);
+int		close_game(void *game);
 
 #endif

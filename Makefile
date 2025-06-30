@@ -6,7 +6,7 @@
 #    By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 14:48:47 by jomaia            #+#    #+#              #
-#    Updated: 2025/06/26 17:44:43 by jomaia           ###   ########.fr        #
+#    Updated: 2025/06/30 14:33:36 by jomaia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ MINILIBX =$(MINILIBX_DIR)/libmlx.a
 
 MAIN = srcs/main.c
 
-SRCS = srcs/map_parsing.c srcs/create_game.c srcs/map_validation.c srcs/utils.c srcs/error_handler.c srcs/init_window.c
+SRCS = srcs/map_parsing.c srcs/create_game.c srcs/map_validation.c srcs/utils.c srcs/error_handler.c srcs/init_window.c srcs/movement.c
 
 OBJS = $(SRCS:.c=.o)
 
