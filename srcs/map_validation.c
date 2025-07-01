@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:48:34 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/01 14:53:24 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 15:58:10 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	**copy_matrix(char **matrix)
 	i = 0;
 	while(matrix[i])
 		i++;
-	copy = malloc((i - 1) * sizeof(char *));
+	copy = malloc((i + 1) * sizeof(char *));
 	if(!copy)
 		return(NULL);
 	i = 0;
@@ -67,4 +67,5 @@ void validate_map(t_game *game, char **matrix)
 		free_args(matrix);
 		print_error("Invalid Map (no clear path)");
 	}
+	free_args(temp.map.matrix);
 }

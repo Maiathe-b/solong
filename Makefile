@@ -6,7 +6,7 @@
 #    By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 14:48:47 by jomaia            #+#    #+#              #
-#    Updated: 2025/06/30 14:33:36 by jomaia           ###   ########.fr        #
+#    Updated: 2025/07/01 15:48:31 by jomaia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,9 @@ $(MINILIBX):
 
 $(SO_LONG_A): $(OBJS)
 	@$(AR) $(SO_LONG_A) $(OBJS)
-	@echo 'Biblioteca libso_long.a criada!'
 
 $(NAME): $(OBJS) $(MAIN)
 	@$(CC) $(CFLAGS) $(OBJS) $(MAIN) -L$(LIBFT_DIR) -lft -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm -o $(NAME)
-	@echo 'so_long compilado com libft e minilibx!'
 
 mlx_download:
 		git clone https://github.com/42Paris/minilibx-linux.git $(MINILIBX_DIR); \
