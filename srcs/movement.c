@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:25:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/30 16:26:32 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 15:08:19 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	player_move(t_game *game, int x, int y)
 	new_x = game->player.x + x;
 	new_y = game->player.y + y;
 	c = game->map.matrix[new_y][new_x];
-	if (c == '1')
+	if (c == '1' || (c == 'E' && game->exit_opened == 0))
 		return (1);
 	game->moves++;
 	new_position(game, new_x, new_y);

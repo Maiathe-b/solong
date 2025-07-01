@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:20:53 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/25 15:52:02 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:52:25 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ static void	starting_point(t_game *game, char **matrix)
 	int	i;
 	int	j;
 
-	i = 1;
-	while(matrix[i - 1])
+	i = 0;
+	while(matrix[i])
 	{
-		j = 1;
-		while (matrix[i- 1][j - 1])
+		j = 0;
+		while (matrix[i][j])
 		{
-			if (matrix[i - 1][j - 1] == 'P')
+			if (matrix[i][j] == 'P')
 			{
 				game->player.x = j;
 				game->player.y = i;

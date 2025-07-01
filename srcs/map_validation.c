@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:48:34 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/26 17:55:24 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:53:24 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void floodfill(t_game *temp, int x, int y, int *coins_found)
 {
-	if (temp->map.matrix[y - 1][x - 1] == '1' || temp->map.matrix[y - 1][x - 1] == '2')
+	if (x < 1 || y < 1|| temp->map.matrix[y][x] == '1' || temp->map.matrix[y][x] == '2')
 		return;
-	if (temp->map.matrix[y - 1][x - 1] == 'C')
+	if (temp->map.matrix[y][x] == 'C')
 		*coins_found += 1;
-	if (temp->map.matrix[y - 1][x - 1] == 'E')
+	if (temp->map.matrix[y][x] == 'E')
 		temp->valid_exit = 1;
-	temp->map.matrix[y - 1][x - 1] = '2';
+	temp->map.matrix[y][x] = '2';
 	floodfill(temp, x - 1, y, coins_found);
 	floodfill(temp, x + 1, y, coins_found);
 	floodfill(temp, x, y - 1, coins_found);

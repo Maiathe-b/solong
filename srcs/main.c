@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:56:57 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/30 14:38:13 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:27:27 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	main(int argc, char **argv)
 	validate_map(&game, map_matrix);
 	init_window(&game);
 	mlx_hook(game.window, 2, 1L << 0, input, &game);
+	mlx_hook(game.window, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);
+	free_all(&game);
 }
