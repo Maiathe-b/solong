@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:44:14 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/24 15:40:56 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/01 17:21:40 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,27 +103,27 @@ void	handle_errors(char **matrix)
 {
 	if(!matrix)
 	{
-		free(matrix);
+		free_args(matrix);
 		print_error("Matrix failure");
 	}
 	if (size_check(matrix))
 	{
-		free(matrix);
+		free_args(matrix);
 		print_error("Invalid Map");
 	}
 	if (char_check(matrix))
 	{
-		free(matrix);
+		free_args(matrix);
 		print_error("Invalid character in Matrix");
 	}
 	if(count_objects(matrix, 0, 0, 0))
 	{
-		free(matrix);
+		free_args(matrix);
 		print_error("Check number of players, exits or collectibles");
 	}
 	if(outline(matrix))
 	{
-		free(matrix);
+		free_args(matrix);
 		print_error("Outline of Map needs to be walls (1)");
 	}
 }
