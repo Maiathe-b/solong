@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:20:53 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/01 14:52:25 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 11:56:18 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	count_coins(char **matrix)
 		j = 0;
 		while (matrix[i][j])
 		{
-			if(matrix[i][j] == 'C')
+			if (matrix[i][j] == 'C')
 				count++;
 			j++;
 		}
@@ -39,9 +39,9 @@ static int	check_height(char **matrix)
 	int	i;
 
 	i = 0;
-	while(matrix[i])
+	while (matrix[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 static void	starting_point(t_game *game, char **matrix)
@@ -50,7 +50,7 @@ static void	starting_point(t_game *game, char **matrix)
 	int	j;
 
 	i = 0;
-	while(matrix[i])
+	while (matrix[i])
 	{
 		j = 0;
 		while (matrix[i][j])

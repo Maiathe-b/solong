@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:25:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/01 15:08:19 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 12:09:47 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	player_move(t_game *game, int x, int y)
 
 int	input(int key, void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	if (key == XK_Escape)
@@ -68,5 +68,5 @@ int	input(int key, void *param)
 		player_move(game, 0, 1);
 	if (key == XK_d)
 		player_move(game, 1, 0);
-	return(0);
+	return (0);
 }

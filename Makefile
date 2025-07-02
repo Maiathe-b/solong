@@ -6,7 +6,7 @@
 #    By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/11 14:48:47 by jomaia            #+#    #+#              #
-#    Updated: 2025/07/01 15:48:31 by jomaia           ###   ########.fr        #
+#    Updated: 2025/07/02 12:16:03 by jomaia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,4 +57,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus mlx_download
+.PHONY: all clean fclean re mlx_download

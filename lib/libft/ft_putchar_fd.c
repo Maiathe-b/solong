@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 15:21:27 by joaomaia          #+#    #+#             */
-/*   Updated: 2025/06/02 12:08:29 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 11:50:21 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	return(1);
+	return (1);
 }

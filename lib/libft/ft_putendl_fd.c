@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 15:28:36 by joaomaia          #+#    #+#             */
-/*   Updated: 2025/06/02 12:12:42 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 11:50:26 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putendl_fd(char *s, int fd)
 		i++;
 	}
 	write(fd, "\n", 1);
-	return(i + 1);
+	return (i + 1);
 }
 
 // int main()

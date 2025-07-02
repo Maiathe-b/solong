@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:32:47 by jomaia            #+#    #+#             */
-/*   Updated: 2025/06/26 17:12:28 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 11:51:45 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	check_newline(char *line)
 	int	i;
 
 	i = 1;
-	if(!line)
+	if (!line)
 		print_error("Error with line");
-	if(line[0] == '\n')
-		{
-			free(line);
-			print_error("Invalid Map (empty line)");
-		}
-	while(line[i])
+	if (line[0] == '\n')
 	{
-		if(line[i] == '\n' && line[i + 1] == '\n')
+		free(line);
+		print_error("Invalid Map (empty line)");
+	}
+	while (line[i])
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
 		{
 			free(line);
 			print_error("Invalid Map (empty line)");
@@ -63,5 +63,3 @@ char	**read_map(int fd)
 	handle_errors(matrix);
 	return (matrix);
 }
-
-

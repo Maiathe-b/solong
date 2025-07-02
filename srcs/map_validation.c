@@ -6,16 +6,17 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 14:48:34 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/01 15:58:10 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/02 12:09:21 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void floodfill(t_game *temp, int x, int y, int *coins_found)
+static void	floodfill(t_game *temp, int x, int y, int *coins_found)
 {
-	if (x < 1 || y < 1|| temp->map.matrix[y][x] == '1' || temp->map.matrix[y][x] == '2')
-		return;
+	if (x < 1 || y < 1
+		|| temp->map.matrix[y][x] == '1' || temp->map.matrix[y][x] == '2')
+		return ;
 	if (temp->map.matrix[y][x] == 'C')
 		*coins_found += 1;
 	if (temp->map.matrix[y][x] == 'E')
@@ -33,13 +34,13 @@ static char	**copy_matrix(char **matrix)
 	int		i;
 
 	i = 0;
-	while(matrix[i])
+	while (matrix[i])
 		i++;
 	copy = malloc((i + 1) * sizeof(char *));
-	if(!copy)
-		return(NULL);
+	if (!copy)
+		return (NULL);
 	i = 0;
-	while(matrix[i])
+	while (matrix[i])
 	{
 		copy[i] = ft_strdup(matrix[i]);
 		i++;
@@ -48,10 +49,10 @@ static char	**copy_matrix(char **matrix)
 	return (copy);
 }
 
-void validate_map(t_game *game, char **matrix)
+void	validate_map(t_game *game, char **matrix)
 {
-	t_game temp;
-	int coins_found;
+	t_game	temp;
+	int		coins_found;
 
 	coins_found = 0;
 	temp = *game;
