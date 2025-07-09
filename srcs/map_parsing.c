@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
+/*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:32:47 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/02 11:51:45 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/08 16:43:32 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	check_newline(char *line)
 	}
 }
 
+static void	empty_file_check(int bytes_read, char *line)
+{
+	if (bytes_read == 0)
+	{
+		free(line);
+		print_error("Empty file");
+	}
+}
+
 char	**read_map(int fd)
 {
 	char	buffer[BUFFER_SIZE];
@@ -43,12 +52,11 @@ char	**read_map(int fd)
 	char	*line;
 	char	*aux;
 
-	bytes_read = 1;
+	bytes_read = read(fd, buffer, BUFFER_SIZE - 1);
 	line = ft_strdup("");
-	aux = NULL;
+	empty_file_check(bytes_read, line);
 	while (bytes_read > 0)
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE - 1);
 		if (bytes_read > 0)
 		{
 			buffer[bytes_read] = '\0';
@@ -56,6 +64,7 @@ char	**read_map(int fd)
 			line = ft_strjoin(line, buffer);
 			free(aux);
 		}
+		bytes_read = read(fd, buffer, BUFFER_SIZE - 1);
 	}
 	check_newline(line);
 	matrix = ft_split(line, '\n');

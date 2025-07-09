@@ -6,7 +6,7 @@
 /*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 16:55:54 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/02 12:07:08 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/08 16:09:41 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ static void	draw_images(t_game *game)
 			"img/water.xpm", &width, &height);
 	game->images.grass = mlx_xpm_file_to_image(game->mlx,
 			"img/grass.xpm", &width, &height);
+	game->images.player_exit = mlx_xpm_file_to_image(game->mlx,
+			"img/Player_on_exit.xpm", &width, &height);
 	if (!game->images.collectable || !game->images.player
 		|| !game->images.exit || !game->images.exit_open
-		|| !game->images.water || !game->images.grass)
+		|| !game->images.water || !game->images.grass
+		|| !game->images.player_exit)
 	{
 		free_all(game);
 		print_error("Images init error");
@@ -58,6 +61,9 @@ static void	draw_map2(t_game *game)
 			else if (game->map.matrix[i][j] == 'E' && game->exit_opened == 1)
 				mlx_put_image_to_window(game->mlx,
 					game->window, game->images.exit_open, j * 64, i * 64);
+			else if (game->map.matrix[i][j] == 'F')
+				mlx_put_image_to_window(game->mlx,
+					game->window, game->images.player_exit, j * 64, i * 64);
 			j++;
 		}
 		i++;
