@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
+/*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:56:57 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/08 14:43:31 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/17 13:15:00 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
-	if (ft_strlen(argv[1]) < 4
-		|| !ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
+	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
 		print_error("Invalid file");
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)

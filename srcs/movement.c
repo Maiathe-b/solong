@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomaia <jomaia@student.42lisboa.com>       +#+  +:+       +#+        */
+/*   By: jomaia <jomaia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 14:25:02 by jomaia            #+#    #+#             */
-/*   Updated: 2025/07/08 15:49:29 by jomaia           ###   ########.fr       */
+/*   Updated: 2025/07/09 17:32:01 by jomaia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	player_move(t_game *game, int x, int y)
 	}
 	if (c == 'E' && game->coins_capt == game->map.coins)
 	{
-		ft_printf("You win");
+		ft_printf("You win\n");
 		close_game(game);
 	}
 	return (0);
